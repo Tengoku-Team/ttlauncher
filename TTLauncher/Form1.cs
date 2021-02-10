@@ -13,15 +13,20 @@ namespace TTLauncher
 {
     public partial class Form1 : Form
     {
+        private string serverIp = "127.0.0.1";
+        private string serverPort = "7777";
+
         public Form1()
         {
             InitializeComponent();
         }
 
         private void playButton_Click(object sender, EventArgs e)
-        {          
+        {
+            string nickName = nicknameTextBox.Text;
             string path = "C:\\Users\\dimas\\Desktop\\gta-sa.exe.lnk";
-            Process.Start(path, "\"127.0.0.1:1234\" \" -n d1maz.\"");
+            string arguments = $"\"{serverIp}:{serverPort}\" \"-n {nickName}\"";
+            Process.Start(path, arguments);
         }
     }
 }

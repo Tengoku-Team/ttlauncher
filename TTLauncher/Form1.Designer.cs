@@ -59,6 +59,7 @@
             this.nicknameTextBox.Name = "nicknameTextBox";
             this.nicknameTextBox.Size = new System.Drawing.Size(190, 20);
             this.nicknameTextBox.TabIndex = 3;
+            this.nicknameTextBox.Text = "werwrer";
             // 
             // Form1
             // 

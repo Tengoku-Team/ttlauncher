@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using SampQueryApi;
-using Microsoft.Win32;
+
 
 namespace TTLauncher{
     public partial class Form1 : Form{
@@ -18,11 +18,12 @@ namespace TTLauncher{
 
         public Form1(){
             InitializeComponent();
-            if (getRegistryKey("Nickname") == ""){
-                createRegistryKey();
+            RegKeys rg = new RegKeys();
+            if (rg.getRegistryKey("Nickname") == ""){
+                rg.createRegistryKey();
             }
             else{
-                nicknameTextBox.Text = getRegistryKey("Nickname");
+                nicknameTextBox.Text = rg.getRegistryKey("Nickname");
             }
         }
 
@@ -31,36 +32,15 @@ namespace TTLauncher{
                 string nickName = nicknameTextBox.Text;
                 string path = "C:\\Users\\dimas\\Desktop\\gta-sa.exe.lnk";
                 string arguments = $"\"{serverIp}:{serverPort}\" \"-n {nickName}\"";
-                if(getRegistryKey("Nickname") != nickName){
-                    updateRegistryKey("Nickname",nickName);
+                RegKeys rg = new RegKeys();
+                if (rg.getRegistryKey("Nickname") != nickName){
+                    rg.updateRegistryKey("Nickname",nickName);
                 }
                 Process.Start(path, arguments);
             }
             else{
                 MessageBox.Show("Длина никнейма может быть от 3-24 символов!");
             }
-        }
-
-        private void createRegistryKey(){
-            RegistryKey regKey = Registry.CurrentUser.CreateSubKey("Software\\Tengoku-Team",true);
-            RegistryKey settings = regKey.CreateSubKey("Launcher Settings",true);
-            settings.SetValue("Nickname", "");
-            regKey.Close();
-        }
-
-        private void updateRegistryKey(string name, string value){
-            RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Tengoku-Team",true);
-            RegistryKey settings = regKey.OpenSubKey("Launcher Settings",true);
-            settings.SetValue(name, value);
-            regKey.Close();
-        }
-
-        private string getRegistryKey(string name){
-            RegistryKey regKey = Registry.CurrentUser.OpenSubKey("Software\\Tengoku-Team",true);
-            RegistryKey settings = regKey.OpenSubKey("Launcher Settings",true);
-            string value = settings.GetValue(name).ToString();
-            regKey.Close();
-            return value;
         }
     }
 }

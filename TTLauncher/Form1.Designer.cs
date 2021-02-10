@@ -70,6 +70,7 @@
             this.Controls.Add(this.playButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tengoku Team Launcher";
             this.ResumeLayout(false);
             this.PerformLayout();

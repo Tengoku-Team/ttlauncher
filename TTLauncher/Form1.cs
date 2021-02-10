@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace TTLauncher
 {
@@ -15,6 +16,12 @@ namespace TTLauncher
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void playButton_Click(object sender, EventArgs e)
+        {          
+            string path = "C:\\Users\\dimas\\Desktop\\gta-sa.exe.lnk";
+            Process.Start(path, "\"127.0.0.1:1234\" \" -n d1maz.\"");
         }
     }
 }

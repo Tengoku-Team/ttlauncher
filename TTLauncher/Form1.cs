@@ -19,27 +19,32 @@ namespace TTLauncher{
         public Form1(){
             InitializeComponent();
             RegKeys rg = new RegKeys();
-            if (Registry.GetValue(@"HKEY_CURRENT_USER\Software\Tengoku-Team", "Launcher Settings", null) == null){
-                rg.createRegistryKey();
+            if (rg.existRegistryKey()){
+                nicknameTextBox.Text = rg.getRegistryKey("Nickname");
             }
             else{
-                nicknameTextBox.Text = rg.getRegistryKey("Nickname");
+                rg.createRegistryKey();
             }
         }
 
         private void playButton_Click(object sender, EventArgs e){
-            if (nicknameTextBox.TextLength >= 3 && nicknameTextBox.TextLength <= 24){//проверка на длину никнейма
-                string nickName = nicknameTextBox.Text;
-                string path = "C:\\Users\\dimas\\Desktop\\gta-sa.exe.lnk";
-                string arguments = $"\"{serverIp}:{serverPort}\" \"-n {nickName}\"";
-                RegKeys rg = new RegKeys();
-                if (rg.getRegistryKey("Nickname") != nickName){
-                    rg.updateRegistryKey("Nickname",nickName);
+            RegKeys rg = new RegKeys();
+            if (rg.getRegistryKey("Path") != ""){
+                if (nicknameTextBox.TextLength >= 3 && nicknameTextBox.TextLength <= 24){//проверка на длину никнейма
+                    string nickName = nicknameTextBox.Text;
+                    string path = rg.getRegistryKey("Path");
+                    string arguments = $"\"{serverIp}:{serverPort}\" \"-n {nickName}\"";
+                    if (rg.getRegistryKey("Nickname") != nickName){
+                        rg.updateRegistryKey("Nickname", nickName);
+                    }
+                    Process.Start(path, arguments);
                 }
-                Process.Start(path, arguments);
+                else{
+                    MessageBox.Show("Длина никнейма может быть от 3-24 символов!");
+                }
             }
             else{
-                MessageBox.Show("Длина никнейма может быть от 3-24 символов!");
+                MessageBox.Show("Вы не указали путь к игре!");
             }
         }
 

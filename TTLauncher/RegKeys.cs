@@ -29,5 +29,12 @@ namespace TTLauncher{
             regKey.Close();
             return value;
         }
+
+        public bool existRegistryKey(){
+            if (Registry.GetValue(@"HKEY_CURRENT_USER\Software\Tengoku-Team\Launcher Settings", "Nickname", null) == null){
+                return false;
+            }
+            return true;
+        }
     }
 }

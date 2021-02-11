@@ -11,6 +11,7 @@ namespace TTLauncher{
             RegistryKey regKey = Registry.CurrentUser.CreateSubKey("Software\\Tengoku-Team", true);
             RegistryKey settings = regKey.CreateSubKey("Launcher Settings", true);
             settings.SetValue("Nickname", "");
+            settings.SetValue("Path", "");
             regKey.Close();
         }
 

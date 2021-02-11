@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using SampQueryApi;
-
+using Microsoft.Win32;
 
 namespace TTLauncher{
     public partial class Form1 : Form{
@@ -19,7 +19,7 @@ namespace TTLauncher{
         public Form1(){
             InitializeComponent();
             RegKeys rg = new RegKeys();
-            if (rg.getRegistryKey("Nickname") == ""){
+            if (Registry.GetValue(@"HKEY_CURRENT_USER\Software\Tengoku-Team", "Launcher Settings", null) == null){
                 rg.createRegistryKey();
             }
             else{
@@ -41,6 +41,11 @@ namespace TTLauncher{
             else{
                 MessageBox.Show("Длина никнейма может быть от 3-24 символов!");
             }
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e){
+            settingsForm sf = new settingsForm();
+            sf.Show();
         }
     }
 }

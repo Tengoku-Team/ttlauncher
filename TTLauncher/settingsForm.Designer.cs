@@ -83,7 +83,7 @@ namespace TTLauncher
         #endregion
 
         private System.Windows.Forms.Label pathToGameLabel;
-        private System.Windows.Forms.TextBox pathToGameTextBox;
         private System.Windows.Forms.Button pathToGameButton;
+        public System.Windows.Forms.TextBox pathToGameTextBox;
     }
 }

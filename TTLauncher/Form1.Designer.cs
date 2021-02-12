@@ -37,7 +37,7 @@
             // playButton
             // 
             this.playButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.playButton.Location = new System.Drawing.Point(12, 52);
+            this.playButton.Location = new System.Drawing.Point(215, 20);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(103, 31);
             this.playButton.TabIndex = 0;
@@ -68,7 +68,7 @@
             // 
             this.settingsButton.BackgroundImage = global::TTLauncher.Properties.Resources.gear;
             this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.settingsButton.Location = new System.Drawing.Point(179, 52);
+            this.settingsButton.Location = new System.Drawing.Point(324, 20);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(30, 31);
             this.settingsButton.TabIndex = 4;
@@ -79,7 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(221, 89);
+            this.ClientSize = new System.Drawing.Size(363, 71);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.nicknameLabel);
             this.Controls.Add(this.nicknameTextBox);

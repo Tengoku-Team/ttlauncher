@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("itit");
             this.playButton = new System.Windows.Forms.Button();
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.nicknameTextBox = new System.Windows.Forms.TextBox();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // playButton
@@ -75,11 +77,24 @@
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.listView1.Location = new System.Drawing.Point(13, 57);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(341, 144);
+            this.listView1.TabIndex = 5;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 71);
+            this.ClientSize = new System.Drawing.Size(363, 213);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.nicknameLabel);
             this.Controls.Add(this.nicknameTextBox);
@@ -99,6 +114,7 @@
         private System.Windows.Forms.Label nicknameLabel;
         private System.Windows.Forms.TextBox nicknameTextBox;
         private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

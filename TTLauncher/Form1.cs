@@ -6,14 +6,15 @@ using System.Collections.Generic;
 
 namespace TTLauncher{
     public partial class Form1 : Form{
-        //private string serverIp = "185.169.134.83";//ip адрес сервера
-        private string serverIp = "46.174.52.246";//ip адрес сервера
+        private string serverIp = "185.169.134.83";//ip адрес сервера
         private ushort serverPort = 7777;//порт сервера
 
         List<string> serverInfo = new List<string>();
 
         public Form1(){
             InitializeComponent();
+            versionLabel.Text = ProductVersion;
+            authorLabel.Text = CompanyName;
             SampQuery api = new SampQuery(serverIp,serverPort, 'i');
             foreach (KeyValuePair<string, string> kvp in api.read(true)){
                 serverInfo.Add(kvp.Value);
@@ -36,7 +37,7 @@ namespace TTLauncher{
 
         private void playButton_Click(object sender, EventArgs e){
             RegKeys rg = new RegKeys();
-            if (rg.getRegistryKey("Path") != ""){
+            if (rg.getRegistryKey("Path").Length >= 1){
                 if (System.IO.File.Exists(rg.getRegistryKey("Path"))){
                     if (nicknameTextBox.TextLength >= 3 && nicknameTextBox.TextLength <= 24){//проверка на длину никнейма
                         string nickName = nicknameTextBox.Text;

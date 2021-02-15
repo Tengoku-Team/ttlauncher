@@ -33,6 +33,8 @@
             this.nicknameTextBox = new System.Windows.Forms.TextBox();
             this.settingsButton = new System.Windows.Forms.Button();
             this.serverInfoListView = new System.Windows.Forms.ListView();
+            this.versionLabel = new System.Windows.Forms.Label();
+            this.authorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // playButton
@@ -89,11 +91,35 @@
             this.serverInfoListView.UseCompatibleStateImageBehavior = false;
             this.serverInfoListView.View = System.Windows.Forms.View.List;
             // 
+            // versionLabel
+            // 
+            this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.versionLabel.AutoSize = true;
+            this.versionLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.versionLabel.Location = new System.Drawing.Point(321, 146);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.versionLabel.Size = new System.Drawing.Size(36, 12);
+            this.versionLabel.TabIndex = 6;
+            this.versionLabel.Text = "label1";
+            // 
+            // authorLabel
+            // 
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.authorLabel.Location = new System.Drawing.Point(12, 146);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(36, 12);
+            this.authorLabel.TabIndex = 7;
+            this.authorLabel.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 144);
+            this.ClientSize = new System.Drawing.Size(367, 168);
+            this.Controls.Add(this.authorLabel);
+            this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.serverInfoListView);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.nicknameLabel);
@@ -115,6 +141,8 @@
         private System.Windows.Forms.TextBox nicknameTextBox;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.ListView serverInfoListView;
+        private System.Windows.Forms.Label versionLabel;
+        private System.Windows.Forms.Label authorLabel;
     }
 }
 

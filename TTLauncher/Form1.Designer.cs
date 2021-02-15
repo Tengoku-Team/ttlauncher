@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("itit");
             this.playButton = new System.Windows.Forms.Button();
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.nicknameTextBox = new System.Windows.Forms.TextBox();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.serverInfoListView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // playButton
             // 
+            this.playButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.playButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.playButton.Location = new System.Drawing.Point(215, 20);
             this.playButton.Name = "playButton";
@@ -68,6 +68,7 @@
             // 
             // settingsButton
             // 
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.settingsButton.BackgroundImage = global::TTLauncher.Properties.Resources.gear;
             this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.settingsButton.Location = new System.Drawing.Point(324, 20);
@@ -77,24 +78,23 @@
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
-            // listView1
+            // serverInfoListView
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(13, 57);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(341, 144);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.serverInfoListView.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.serverInfoListView.HideSelection = false;
+            this.serverInfoListView.Location = new System.Drawing.Point(12, 57);
+            this.serverInfoListView.Name = "serverInfoListView";
+            this.serverInfoListView.Size = new System.Drawing.Size(342, 75);
+            this.serverInfoListView.TabIndex = 5;
+            this.serverInfoListView.UseCompatibleStateImageBehavior = false;
+            this.serverInfoListView.View = System.Windows.Forms.View.List;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 213);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(367, 144);
+            this.Controls.Add(this.serverInfoListView);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.nicknameLabel);
             this.Controls.Add(this.nicknameTextBox);
@@ -114,7 +114,7 @@
         private System.Windows.Forms.Label nicknameLabel;
         private System.Windows.Forms.TextBox nicknameTextBox;
         private System.Windows.Forms.Button settingsButton;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView serverInfoListView;
     }
 }
 

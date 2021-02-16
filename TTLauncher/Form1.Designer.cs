@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.playButton = new System.Windows.Forms.Button();
             this.nicknameLabel = new System.Windows.Forms.Label();
             this.nicknameTextBox = new System.Windows.Forms.TextBox();
@@ -35,6 +37,7 @@
             this.serverInfoListView = new System.Windows.Forms.ListView();
             this.versionLabel = new System.Windows.Forms.Label();
             this.authorLabel = new System.Windows.Forms.Label();
+            this.refreshServerInfoTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // playButton
@@ -113,6 +116,11 @@
             this.authorLabel.TabIndex = 7;
             this.authorLabel.Text = "label2";
             // 
+            // refreshServerInfoTimer
+            // 
+            this.refreshServerInfoTimer.Interval = 2000;
+            this.refreshServerInfoTimer.Tick += new System.EventHandler(this.refreshServerInfoTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,10 +133,14 @@
             this.Controls.Add(this.nicknameLabel);
             this.Controls.Add(this.nicknameTextBox);
             this.Controls.Add(this.playButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tengoku Team Launcher";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
+            this.Deactivate += new System.EventHandler(this.Form1_Deactivate);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +155,7 @@
         private System.Windows.Forms.ListView serverInfoListView;
         private System.Windows.Forms.Label versionLabel;
         private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.Timer refreshServerInfoTimer;
     }
 }
 

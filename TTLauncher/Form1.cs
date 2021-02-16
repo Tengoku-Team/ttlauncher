@@ -6,10 +6,12 @@ using System.Collections.Generic;
 
 namespace TTLauncher{
     public partial class Form1 : Form{
-        private string serverIp = "185.169.134.83";//ip адрес сервера
+        private string serverIp = "185.169.134.4";//ip адрес сервера
         private ushort serverPort = 7777;//порт сервера
 
         List<string> serverInfo = new List<string>();
+
+        ListViewItem playersItem;
 
         public Form1(){
             InitializeComponent();
@@ -17,15 +19,19 @@ namespace TTLauncher{
             authorLabel.Text = CompanyName;
             SampQuery api = new SampQuery(serverIp,serverPort, 'i');
             foreach (KeyValuePair<string, string> kvp in api.read(true)){
-                serverInfo.Add(kvp.Value);
+                if (kvp.Key == "gamemode" || kvp.Key == "players" || kvp.Key == "maxplayers" || kvp.Key == "hostname"){
+                    serverInfo.Add(kvp.Value);
+                }
             }
-            if ((serverInfoListView.Width + serverInfo[3].Length) > Width){
-                Width += serverInfo[3].Length;
-                serverInfoListView.Width += serverInfo[3].Length;
+            if ((serverInfoListView.Width + serverInfo[2].Length) > Width){
+                Width += serverInfo[2].Length;
+                serverInfoListView.Width += serverInfo[2].Length;
             }
-            serverInfoListView.Items.Add("Название: " + serverInfo[3]);
-            serverInfoListView.Items.Add("Название мода: " + serverInfo[4]);
-            serverInfoListView.Items.Add("Игроки: " + serverInfo[1] + "/" + serverInfo[2]);
+            ListViewItem hostnameItem = serverInfoListView.Items.Add("Название: " + serverInfo[2]);
+            ListViewItem gamemodeItem = serverInfoListView.Items.Add("Название мода: " + serverInfo[3]);
+            playersItem = serverInfoListView.Items.Add("Игроки: " + serverInfo[0] + "/" + serverInfo[1]);
+            serverInfo.Clear();
+            refreshServerInfoTimer.Start();
             RegKeys rg = new RegKeys();
             if (rg.existRegistryKey()){
                 nicknameTextBox.Text = rg.getRegistryKey("Nickname");
@@ -66,6 +72,31 @@ namespace TTLauncher{
             RegKeys rg = new RegKeys();
             sf.pathToGameTextBox.Text = rg.getRegistryKey("Path"); 
             sf.Show();
+        }
+
+        private void refreshServerInfoTimer_Tick(object sender, EventArgs e){            
+            SampQuery api = new SampQuery(serverIp, serverPort, 'i');
+            foreach (KeyValuePair<string, string> kvp in api.read(true)){
+                if (kvp.Key == "players" || kvp.Key == "maxplayers"){
+                    serverInfo.Add(kvp.Value);
+                }
+            }
+            if(serverInfo.Count == 2){
+                playersItem.Text = "Игроки: " + serverInfo[0] + "/" + serverInfo[1];
+            }
+            serverInfo.Clear();
+        }
+
+        private void Form1_Activated(object sender, EventArgs e){
+            if (!refreshServerInfoTimer.Enabled){
+                refreshServerInfoTimer.Start();
+            }
+        }
+
+        private void Form1_Deactivate(object sender, EventArgs e){
+            if (refreshServerInfoTimer.Enabled){
+                refreshServerInfoTimer.Stop();
+            }
         }
     }
 }

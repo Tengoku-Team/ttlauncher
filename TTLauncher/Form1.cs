@@ -98,5 +98,13 @@ namespace TTLauncher{
                 refreshServerInfoTimer.Stop();
             }
         }
+
+        private void webButton_Click(object sender, EventArgs e){
+            Process.Start("https://github.com/Tengoku-Team");
+        }
+
+        private void button1_Click(object sender, EventArgs e){
+            Process.Start("https://vk.com/d1maz.community");
+        }
     }
 }

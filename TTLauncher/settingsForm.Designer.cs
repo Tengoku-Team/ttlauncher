@@ -29,6 +29,7 @@ namespace TTLauncher
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(settingsForm));
             this.pathToGameLabel = new System.Windows.Forms.Label();
             this.pathToGameTextBox = new System.Windows.Forms.TextBox();
             this.pathToGameButton = new System.Windows.Forms.Button();
@@ -71,7 +72,9 @@ namespace TTLauncher
             this.Controls.Add(this.pathToGameButton);
             this.Controls.Add(this.pathToGameTextBox);
             this.Controls.Add(this.pathToGameLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "settingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";

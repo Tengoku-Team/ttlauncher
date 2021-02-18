@@ -91,7 +91,7 @@
             this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.versionLabel.AutoSize = true;
             this.versionLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.versionLabel.Location = new System.Drawing.Point(324, 242);
+            this.versionLabel.Location = new System.Drawing.Point(324, 240);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.versionLabel.Size = new System.Drawing.Size(36, 12);
@@ -103,7 +103,7 @@
             this.authorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.authorLabel.AutoSize = true;
             this.authorLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authorLabel.Location = new System.Drawing.Point(10, 242);
+            this.authorLabel.Location = new System.Drawing.Point(10, 240);
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(36, 12);
             this.authorLabel.TabIndex = 7;
@@ -172,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 263);
+            this.ClientSize = new System.Drawing.Size(369, 261);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.webButton);
             this.Controls.Add(this.linksLabel);

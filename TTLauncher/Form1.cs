@@ -9,6 +9,9 @@ namespace TTLauncher{
         private string serverIp = "185.169.134.4";//ip адрес сервера
         private ushort serverPort = 7777;//порт сервера
 
+        private string serverSite = "https://github.com/Tengoku-Team";//Ссылка на сайт
+        private string serverVk = "https://vk.com/d1maz.community";//Ссылка на ВК
+
         List<string> serverInfo = new List<string>();
 
         ListViewItem playersItem;
@@ -100,11 +103,11 @@ namespace TTLauncher{
         }
 
         private void webButton_Click(object sender, EventArgs e){
-            Process.Start("https://github.com/Tengoku-Team");
+            Process.Start(serverSite);
         }
 
         private void button1_Click(object sender, EventArgs e){
-            Process.Start("https://vk.com/d1maz.community");
+            Process.Start(serverVk);
         }
     }
 }

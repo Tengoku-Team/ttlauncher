@@ -30,8 +30,8 @@ namespace TTLauncher{
                 Width += serverInfo[2].Length;
                 serverInfoListView.Width += serverInfo[2].Length;
             }
-            ListViewItem hostnameItem = serverInfoListView.Items.Add("Название: " + serverInfo[2]);
-            ListViewItem gamemodeItem = serverInfoListView.Items.Add("Название мода: " + serverInfo[3]);
+            serverInfoListView.Items.Add("Название: " + serverInfo[2]);
+            serverInfoListView.Items.Add("Название мода: " + serverInfo[3]);
             playersItem = serverInfoListView.Items.Add("Игроки: " + serverInfo[0] + "/" + serverInfo[1]);
             serverInfo.Clear();
             refreshServerInfoTimer.Start();

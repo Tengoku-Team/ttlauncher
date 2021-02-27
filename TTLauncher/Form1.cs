@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace TTLauncher{
     public partial class Form1 : Form{
-        private string serverIp = "185.169.134.4";//ip адрес сервера
+        private string serverIp = "127.0.0.1";//ip адрес сервера
         private ushort serverPort = 7777;//порт сервера
 
         private string serverSite = "https://github.com/Tengoku-Team";//Ссылка на сайт
@@ -17,30 +17,42 @@ namespace TTLauncher{
         ListViewItem playersItem;
 
         public Form1(){
-            InitializeComponent();
-            versionLabel.Text = ProductVersion;
-            authorLabel.Text = CompanyName;
-            SampQuery api = new SampQuery(serverIp,serverPort, 'i');
-            foreach (KeyValuePair<string, string> kvp in api.read(true)){
-                if (kvp.Key == "gamemode" || kvp.Key == "players" || kvp.Key == "maxplayers" || kvp.Key == "hostname"){
-                    serverInfo.Add(kvp.Value);
+            if (serverIp != "localhost" && serverIp != "127.0.0.1"){
+                SampQuery api = new SampQuery(serverIp, serverPort, 'i');
+                foreach (KeyValuePair<string, string> kvp in api.read(true)){
+                    if (kvp.Key == "gamemode" || kvp.Key == "players" || kvp.Key == "maxplayers" || kvp.Key == "hostname"){
+                        serverInfo.Add(kvp.Value);
+                    }
+                }
+                if (serverInfo.Count >= 1){
+                    InitializeComponent();
+                    versionLabel.Text = ProductVersion;
+                    authorLabel.Text = CompanyName;
+                    if ((serverInfoListView.Width + serverInfo[2].Length) > Width){
+                        Width += serverInfo[2].Length;
+                        serverInfoListView.Width += serverInfo[2].Length;
+                    }
+                    serverInfoListView.Items.Add("Название: " + serverInfo[2]);
+                    serverInfoListView.Items.Add("Название мода: " + serverInfo[3]);
+                    playersItem = serverInfoListView.Items.Add("Игроки: " + serverInfo[0] + "/" + serverInfo[1]);
+                    serverInfo.Clear();
+                    refreshServerInfoTimer.Start();
+                    RegKeys rg = new RegKeys();
+                    if (rg.existRegistryKey()){
+                        nicknameTextBox.Text = rg.getRegistryKey("Nickname");
+                    }
+                    else{
+                        rg.createRegistryKey();
+                    }
+                }
+                else{
+                    MessageBox.Show("Недостаточно данных о сервере для запуска лаунчера!\n\nВозможно сервер отключен.");
+                    Close();
                 }
             }
-            if ((serverInfoListView.Width + serverInfo[2].Length) > Width){
-                Width += serverInfo[2].Length;
-                serverInfoListView.Width += serverInfo[2].Length;
-            }
-            serverInfoListView.Items.Add("Название: " + serverInfo[2]);
-            serverInfoListView.Items.Add("Название мода: " + serverInfo[3]);
-            playersItem = serverInfoListView.Items.Add("Игроки: " + serverInfo[0] + "/" + serverInfo[1]);
-            serverInfo.Clear();
-            refreshServerInfoTimer.Start();
-            RegKeys rg = new RegKeys();
-            if (rg.existRegistryKey()){
-                nicknameTextBox.Text = rg.getRegistryKey("Nickname");
-            }
             else{
-                rg.createRegistryKey();
+                MessageBox.Show("Для вывода данных сервера не должен использоваться локальный хостинг!");
+                Close();
             }
         }
 

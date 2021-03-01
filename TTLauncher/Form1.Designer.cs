@@ -193,6 +193,7 @@
             this.serversComboBox.Name = "serversComboBox";
             this.serversComboBox.Size = new System.Drawing.Size(342, 21);
             this.serversComboBox.TabIndex = 14;
+            this.serversComboBox.SelectedIndexChanged += new System.EventHandler(this.serversComboBox_SelectedIndexChanged);
             // 
             // Form1
             // 

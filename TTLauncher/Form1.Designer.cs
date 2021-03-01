@@ -42,13 +42,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.webButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.serversComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // playButton
             // 
             this.playButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.playButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.playButton.Location = new System.Drawing.Point(220, 20);
+            this.playButton.Location = new System.Drawing.Point(215, 20);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(103, 31);
             this.playButton.TabIndex = 0;
@@ -77,11 +79,12 @@
             // 
             // serverInfoListView
             // 
+            this.serverInfoListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.serverInfoListView.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.serverInfoListView.HideSelection = false;
-            this.serverInfoListView.Location = new System.Drawing.Point(12, 82);
+            this.serverInfoListView.Location = new System.Drawing.Point(12, 131);
             this.serverInfoListView.Name = "serverInfoListView";
-            this.serverInfoListView.Size = new System.Drawing.Size(344, 75);
+            this.serverInfoListView.Size = new System.Drawing.Size(342, 75);
             this.serverInfoListView.TabIndex = 5;
             this.serverInfoListView.UseCompatibleStateImageBehavior = false;
             this.serverInfoListView.View = System.Windows.Forms.View.List;
@@ -91,7 +94,7 @@
             this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.versionLabel.AutoSize = true;
             this.versionLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.versionLabel.Location = new System.Drawing.Point(324, 240);
+            this.versionLabel.Location = new System.Drawing.Point(318, 285);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.versionLabel.Size = new System.Drawing.Size(36, 12);
@@ -103,7 +106,7 @@
             this.authorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.authorLabel.AutoSize = true;
             this.authorLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.authorLabel.Location = new System.Drawing.Point(10, 240);
+            this.authorLabel.Location = new System.Drawing.Point(10, 285);
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(36, 12);
             this.authorLabel.TabIndex = 7;
@@ -116,9 +119,10 @@
             // 
             // infoAboutServerLabel
             // 
+            this.infoAboutServerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.infoAboutServerLabel.AutoSize = true;
             this.infoAboutServerLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.infoAboutServerLabel.Location = new System.Drawing.Point(9, 64);
+            this.infoAboutServerLabel.Location = new System.Drawing.Point(9, 113);
             this.infoAboutServerLabel.Name = "infoAboutServerLabel";
             this.infoAboutServerLabel.Size = new System.Drawing.Size(144, 15);
             this.infoAboutServerLabel.TabIndex = 8;
@@ -126,9 +130,10 @@
             // 
             // linksLabel
             // 
+            this.linksLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linksLabel.AutoSize = true;
             this.linksLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linksLabel.Location = new System.Drawing.Point(9, 173);
+            this.linksLabel.Location = new System.Drawing.Point(9, 219);
             this.linksLabel.Name = "linksLabel";
             this.linksLabel.Size = new System.Drawing.Size(52, 15);
             this.linksLabel.TabIndex = 9;
@@ -136,9 +141,10 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.BackgroundImage = global::TTLauncher.Properties.Resources.vk;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(49, 191);
+            this.button1.Location = new System.Drawing.Point(49, 237);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(31, 31);
             this.button1.TabIndex = 11;
@@ -147,9 +153,10 @@
             // 
             // webButton
             // 
+            this.webButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.webButton.BackgroundImage = global::TTLauncher.Properties.Resources.web;
             this.webButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.webButton.Location = new System.Drawing.Point(12, 191);
+            this.webButton.Location = new System.Drawing.Point(12, 237);
             this.webButton.Name = "webButton";
             this.webButton.Size = new System.Drawing.Size(31, 31);
             this.webButton.TabIndex = 10;
@@ -161,18 +168,39 @@
             this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.settingsButton.BackgroundImage = global::TTLauncher.Properties.Resources.gear;
             this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.settingsButton.Location = new System.Drawing.Point(329, 20);
+            this.settingsButton.Location = new System.Drawing.Point(324, 20);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(31, 31);
             this.settingsButton.TabIndex = 4;
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(9, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 15);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Сервер";
+            // 
+            // serversComboBox
+            // 
+            this.serversComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.serversComboBox.FormattingEnabled = true;
+            this.serversComboBox.Location = new System.Drawing.Point(12, 79);
+            this.serversComboBox.Name = "serversComboBox";
+            this.serversComboBox.Size = new System.Drawing.Size(342, 21);
+            this.serversComboBox.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 261);
+            this.ClientSize = new System.Drawing.Size(363, 306);
+            this.Controls.Add(this.serversComboBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.webButton);
             this.Controls.Add(this.linksLabel);
@@ -211,6 +239,8 @@
         private System.Windows.Forms.Label linksLabel;
         private System.Windows.Forms.Button webButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox serversComboBox;
     }
 }
 

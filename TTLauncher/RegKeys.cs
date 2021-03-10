@@ -7,6 +7,7 @@ namespace TTLauncher{
             RegistryKey settings = regKey.CreateSubKey("Launcher Settings", true);
             settings.SetValue("Nickname", "");
             settings.SetValue("Path", "");
+            settings.SetValue("SelectedServer", "");
             regKey.Close();
         }
 
